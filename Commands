@@ -1,0 +1,16 @@
+aws kafka describe-cluster --cluster-arn arn:aws:kafka:ap-southeast-2:781228881515:cluster/meetup/2d76cd96-d97e-4cad-ac8c-c57468983114-3
+
+
+Create a cluster
+aws kafka create-cluster --cli-input-json file://createMSK.json
+
+
+
+Get bootstrap location
+
+aws kafka get-bootstrap-brokers --cluster-arn arn:aws:kafka:ap-southeast-2:781228881515:cluster/mysource/c8544cd0-e6bc-407a-8588-7bfaaa494b95-3
+
+{
+    "BootstrapBrokerString": "b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092,b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092",
+    "BootstrapBrokerStringTls": "b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094"
+}

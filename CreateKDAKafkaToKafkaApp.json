@@ -1,0 +1,61 @@
+{
+    "ApplicationName": "kda-Kafka-Kafka2",
+    "ApplicationDescription": "Replicate from source to destination kafka topic",
+    "RuntimeEnvironment": "FLINK-1_8",
+    "ServiceExecutionRole": "arn:aws:iam::781228881515:role/kasayem",
+    "ApplicationConfiguration": {
+        "ApplicationCodeConfiguration": {
+            "CodeContent": {
+                "S3ContentLocation": {
+                    "BucketARN": "arn:aws:s3:::sayemsydney",
+                    "FileKey": "mskapp/kdfKafkaToKafka-1.1.jar"
+                }
+            },
+            "CodeContentType": "ZIPFILE"
+        },
+		"ApplicationSnapshotConfiguration": { 
+         "SnapshotsEnabled": false
+      },
+	  "FlinkApplicationConfiguration": { 
+	  "MonitoringConfiguration": { 
+				"ConfigurationType": "CUSTOM",
+				"LogLevel": "INFO",
+				"MetricsLevel": "APPLICATION"
+			 }
+		 },
+		 
+        "EnvironmentProperties":  { 
+         "PropertyGroups": [ 
+            { 
+               "PropertyGroupId": "KafkaSource",
+               "PropertyMap" : {
+                    "bootstrap.servers" : "b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094",
+                    "security.protocol" : "SSL",
+                    "ssl.truststore.location" : "/usr/local/openjdk-8/jre/lib/security/cacerts",
+					"ssl.truststore.password": "changeit",
+					"topic": "sourcetopic"
+               }
+            },
+            { 
+               "PropertyGroupId": "KafkaSink",
+               "PropertyMap" : {
+                    "bootstrap.servers" : "b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094",
+                    "security.protocol" : "SSL",
+                    "ssl.truststore.location" : "/usr/local/openjdk-8/jre/lib/security/cacerts",
+					"ssl.truststore.password": "changeit",
+					"topic": "destinationtopic"
+               }
+            }
+         ]
+      },
+	  "VpcConfigurations": [ 
+         { 
+            "SecurityGroupIds": [ "sg-16bc3173" ],
+            "SubnetIds": [ "subnet-5c702c1a","subnet-69d2071e","subnet-9a2e82ff"]
+         }
+      ]
+    }
+}
+
+
+
