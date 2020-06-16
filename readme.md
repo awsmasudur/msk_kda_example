@@ -64,7 +64,9 @@ You can follow the MSK getting started guideline here: https://docs.aws.amazon.c
 `bin/kafka-topics.sh --list --zookeeper $ZOOK`  
 
 ## Run producer APP  
-1. Switch back to your Windows machine. 
+1. Switch back to your Windows machine.  
+2. 
+ 
 
 
   
