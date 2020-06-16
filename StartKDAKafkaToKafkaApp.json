@@ -1,5 +1,5 @@
 {
-    "ApplicationName": "kda-Kafka-Kafka",
+    "ApplicationName": "meetupDemo1",
     "RunConfiguration": {
         "ApplicationRestoreConfiguration": { 
          "ApplicationRestoreType": "RESTORE_FROM_LATEST_SNAPSHOT"

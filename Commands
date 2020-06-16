@@ -1,6 +1,6 @@
-aws kafka describe-cluster --cluster-arn arn:aws:kafka:ap-southeast-2:781228881515:cluster/meetup/2d76cd96-d97e-4cad-ac8c-c57468983114-3
+aws kafka describe-cluster --cluster-arn arn:aws:kafka:ap-southeast-2:781228881515:cluster/meetup/2d76cd96-d97e-4cad-ac8c-c57468983114-
 
-
+cd C:\Users\masudurs\Documents\msk_kda_example-Demo
 Create a cluster
 aws kafka create-cluster --cli-input-json file://createMSK.json
 
@@ -14,3 +14,40 @@ aws kafka get-bootstrap-brokers --cluster-arn arn:aws:kafka:ap-southeast-2:78122
     "BootstrapBrokerString": "b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092,b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092",
     "BootstrapBrokerStringTls": "b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094"
 }
+
+
+
+
+
+
+Create topic
+bin/kafka-topics.sh --create --zookeeper "z-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181,z-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181,z-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181" --replication-factor 3 --partitions 1 --topic sourcetopic
+
+bin/kafka-topics.sh --create --zookeeper "z-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181,z-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181,z-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181" --replication-factor 3 --partitions 1 --topic destinationtopic
+
+list topic:
+bin/kafka-topics.sh --list --zookeeper "z-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181,z-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181,z-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:2181"
+
+producer:
+bin/kafka-console-producer.sh --broker-list "b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092,b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092"  --topic sourcetopic
+
+Consumer:
+bin/kafka-console-consumer.sh --bootstrap-server "b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092,b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9092" --topic destinationtopic --from-beginning
+
+
+Zookpper:
+aws kafka describe-cluster --cluster-arn "arn:aws:kafka:ap-southeast-2:781228881515:cluster/mysource/c8544cd0-e6bc-407a-8588-7bfaaa494b95-3"
+
+export ZOOK="ZookeeperConnectString "
+
+mvn package -Dflink.version=1.8.2
+
+
+aws s3 cp kdfKafkaToKafka-1.1.jar s3://sayemsydney/mskapp/kdfKafkaToKafka-1.1.jar
+
+
+
+aws kinesisanalyticsv2 create-application --cli-input-json file://CreateKDAKafkaToKafkaApp.json
+
+
+aws kinesisanalyticsv2 start-application --cli-input-json file://StartKDAKafkaToKafkaApp.json

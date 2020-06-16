@@ -1,5 +1,5 @@
 {
-    "ApplicationName": "kda-Kafka-Kafka2",
+    "ApplicationName": "meetupDemo1",
     "ApplicationDescription": "Replicate from source to destination kafka topic",
     "RuntimeEnvironment": "FLINK-1_8",
     "ServiceExecutionRole": "arn:aws:iam::781228881515:role/kasayem",
@@ -8,7 +8,7 @@
             "CodeContent": {
                 "S3ContentLocation": {
                     "BucketARN": "arn:aws:s3:::sayemsydney",
-                    "FileKey": "mskapp/kdfKafkaToKafka-1.1.jar"
+                    "FileKey": "meetupdemo/kdfKafkaToKafka-1.2.jar"
                 }
             },
             "CodeContentType": "ZIPFILE"
@@ -29,7 +29,7 @@
             { 
                "PropertyGroupId": "KafkaSource",
                "PropertyMap" : {
-                    "bootstrap.servers" : "b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094",
+                    "bootstrap.servers" : "b-3.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-1.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094",
                     "security.protocol" : "SSL",
                     "ssl.truststore.location" : "/usr/local/openjdk-8/jre/lib/security/cacerts",
 					"ssl.truststore.password": "changeit",
@@ -39,7 +39,7 @@
             { 
                "PropertyGroupId": "KafkaSink",
                "PropertyMap" : {
-                    "bootstrap.servers" : "b-1.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-3.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.mysource.wjez1a.c3.kafka.ap-southeast-2.amazonaws.com:9094",
+                    "bootstrap.servers" : "b-3.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-1.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094",
                     "security.protocol" : "SSL",
                     "ssl.truststore.location" : "/usr/local/openjdk-8/jre/lib/security/cacerts",
 					"ssl.truststore.password": "changeit",
