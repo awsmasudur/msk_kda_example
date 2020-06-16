@@ -13,9 +13,9 @@ You can follow the MSK getting started guideline here: https://docs.aws.amazon.c
 
 ## Compile Flink APP
 1. Clone the msk_kda_example repository on your local Windows machine    
-2. Open KDF-kafka-to-kafka-app using IntelliJ and review the code. You don't need to change anything for this demo.  
+2. Open <a href="KDA-kafka-to-kafka-app">KDA-kafka-to-kafka-app</a> using IntelliJ and review the code. You don't need to change anything for this demo.  
 3. Open command prompt and change your directory path to KDF-kafka-to-kafka-app.  
-4. Example `C:\Users\mypath\Documents\msk_kda_example\KDF-kafka-to-kafka-app`.  
+4. Example `C:\Users\mypath\Documents\msk_kda_example\KDA-kafka-to-kafka-app`.  
 5. Run `mvn package -Dflink.version=1.8.2`.  
 6. The command should retrun BUILD SUCCESS info.  
 7. If the build is success you will see a jar file in target folder - \msk_kda_example\KDF-kafka-to-kafka-app\target\kdfKafkaToKafka-1.2.jar.  
