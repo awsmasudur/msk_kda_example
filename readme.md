@@ -63,9 +63,21 @@ You can follow the MSK getting started guideline here: https://docs.aws.amazon.c
 10. run the following command to see the list of topics on your cluster. It will return three topics name on a newly crated cluster.    
 `bin/kafka-topics.sh --list --zookeeper $ZOOK`  
 
-## Run producer APP  
+## Run Consumer APP  
+1. From aws managerment console go to MSK and click on the Kafka cluster that you have created earlier. Click on "View client information". Copy the Plaintext bootstrap server information.  
+2. run the following command  
+`export BOOTSERVER="Replace with Plaintext Bootstrap servers configuration"`  
+3. From your EC2 linux machine run the following command. It will return a empty result, but keep this running for the time being.    
+`bin/kafka-console-consumer.sh --bootstrap-server $BOOTSERVER --topic destinationtopic --from-beginning`  
+
+## Run the producer APP
 1. Switch back to your Windows machine.  
-2. 
+2. Open <a href="kafkaDG"> kafkaDG</a> project with IntelliJ that you have clone earlier from git repo.  
+3. Open the testProducer.java file. Change the brokerlist with your MSK clusters' Plaintext broker configuration.  
+4. Run the java application.  
+5. You will see that your java app is sending data to your sourcetopic and you will also see your EC2 consumer running on linux started reading data from the destinationtopic topic. Here the KDA app is replicating data from your sourcetopic to the  destinationtopic topic.  
+6. To view the activities of your flink app, go to Kinesis data analytics console and monitor your KDA app.
+
  
 
 

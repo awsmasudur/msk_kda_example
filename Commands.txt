@@ -1,3 +1,0 @@
-aws kafka describe-cluster --cluster-arn arn:aws:kafka:ap-southeast-2:781228881515:cluster/meetup/2d76cd96-d97e-4cad-ac8c-c57468983114-3
-
-aws kafka create-cluster --cli-input-json file://clusterinfo.json

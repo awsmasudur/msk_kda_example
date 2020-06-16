@@ -16,8 +16,8 @@ public class testProducer {
         long events = 1000;
         Integer interval = 100;
         String topics = "sourcetopic"; //change your topic name
-        //Change the broker lists
-        String brokerlist="z-2.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:2181,z-1.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:2181,z-3.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:2181";
+        //Change the broker lists Plaintext: Port 9092
+        String brokerlist="YOUR BOOTSTRAP SERVER LIST - Plaintext";
 
         BufferedReader br = new BufferedReader(new InputStreamReader(testProducer.class.getResourceAsStream("/sampleset.txt")));
         //setting up properties to be used to communicate to kafka

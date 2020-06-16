@@ -2,13 +2,13 @@
     "ApplicationName": "meetupDemo1",
     "ApplicationDescription": "Replicate from source to destination kafka topic",
     "RuntimeEnvironment": "FLINK-1_8",
-    "ServiceExecutionRole": "arn:aws:iam::781228881515:role/kasayem",
+    "ServiceExecutionRole": "arn:aws:iam::YOUR_AWS_ACCOUNT:role/YOUR_ROLE_NAME",
     "ApplicationConfiguration": {
         "ApplicationCodeConfiguration": {
             "CodeContent": {
                 "S3ContentLocation": {
-                    "BucketARN": "arn:aws:s3:::sayemsydney",
-                    "FileKey": "meetupdemo/kdfKafkaToKafka-1.2.jar"
+                    "BucketARN": "arn:aws:s3:::YOUR_BUCKET_NAME",
+                    "FileKey": "SUB_FOLDER/kdfKafkaToKafka-1.2.jar"
                 }
             },
             "CodeContentType": "ZIPFILE"
@@ -29,7 +29,7 @@
             { 
                "PropertyGroupId": "KafkaSource",
                "PropertyMap" : {
-                    "bootstrap.servers" : "b-3.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-1.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094",
+                    "bootstrap.servers" : "b-3.:9094,b-2.amazonaws.com:9094,b-1.amazonaws.com:9094",
                     "security.protocol" : "SSL",
                     "ssl.truststore.location" : "/usr/local/openjdk-8/jre/lib/security/cacerts",
 					"ssl.truststore.password": "changeit",
@@ -39,7 +39,7 @@
             { 
                "PropertyGroupId": "KafkaSink",
                "PropertyMap" : {
-                    "bootstrap.servers" : "b-3.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-2.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094,b-1.meetupdemo1.gx0l3f.c3.kafka.ap-southeast-2.amazonaws.com:9094",
+                    "bootstrap.servers" : "b-3.:9094,b-2.amazonaws.com:9094,b-1.amazonaws.com:9094",
                     "security.protocol" : "SSL",
                     "ssl.truststore.location" : "/usr/local/openjdk-8/jre/lib/security/cacerts",
 					"ssl.truststore.password": "changeit",
@@ -50,8 +50,8 @@
       },
 	  "VpcConfigurations": [ 
          { 
-            "SecurityGroupIds": [ "sg-16bc3173" ],
-            "SubnetIds": [ "subnet-5c702c1a","subnet-69d2071e","subnet-9a2e82ff"]
+            "SecurityGroupIds": [ "sg-123" ],
+            "SubnetIds": [ "subnet-123","subnet-234","subnet-456"]
          }
       ]
     }

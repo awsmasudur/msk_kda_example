@@ -3,13 +3,13 @@
     "BrokerAZDistribution": "DEFAULT",
     "InstanceType": "kafka.m5.large",
     "ClientSubnets": [
-      "subnet-5c702c1a",
-		"subnet-69d2071e",
-		"subnet-9a2e82ff"
+      "subnet-123",
+		"subnet-345",
+		"subnet-567"
 
     ],
     "SecurityGroups": [
-      "sg-16bc3173"
+      "sg-123"
     ]
   },
   "ClusterName": "mysource",
