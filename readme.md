@@ -1,6 +1,6 @@
 # Steps to follow
 
-1. Create an EC2 Windows machine on a VPC where you will create your Kafka cluster using Amazon MSK. Create an IAM role for EC2 (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html). For test purpose, you can assign AdministratorAccess policy on that role. Select the role when you are creating the EC2 instance. You will use this role to create the Kafka cluster and also to configure the Kinesis Data Analytics application.
+1. Create an EC2 Windows instance on a VPC where you will create your Kafka cluster using Amazon MSK. Create an IAM role for EC2 (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html). For test purpose, you can assign AdministratorAccess policy on that role. Select the role when you are creating the EC2 instance. You will use this role to create the Kafka cluster and also to configure the Kinesis Data Analytics application.
 2. Configure below tools on your newly created instance  
 a) Install <a href="https://aws.amazon.com/cli/">AWS CLI</a> and configure aws region (ap-southeast-2).    
 b) Install git  
